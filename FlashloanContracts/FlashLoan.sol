@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: MIT 
 //@dev/Developer = Pavan Ananth Sharma
 //@.NET/Network = Kovan Test Network
-pragma solidity ^0.8.0;
+pragma solidity >=0.7.4 <0.9.0;
 import "./FlashLoanReceiverBase.sol";
 import "./ILendingPoolAddressesProvider.sol";
 import "./ILendingPool.sol";
+import "Library/SafeMath.sol";
 
-contract FlashloanV1 is FlashLoanReceiverBaseV1 {
+abstract contract FlashloanV1 is FlashLoanReceiverBaseV1 {
+    using SafeMath for uint256;
     
     string _Real_Owner = "Pavan Ananth Sharma" ;
     
@@ -14,15 +16,17 @@ contract FlashloanV1 is FlashLoanReceiverBaseV1 {
         return _Real_Owner;
     }
 
-    constructor(address _addressProvider) FlashLoanReceiverBaseV1(_addressProvider) public{}
+    constructor(address _addressProvider) FlashLoanReceiverBaseV1(_addressProvider) {
+        // Constructor body can be empty or contain initialization logic
+    }
 
- /**
+    /**
         Flash loan 1000000000000000000 wei (1 ether) worth of `_asset`
      */
- function flashloan(address _asset) public onlyOwner {
+    function flashloan(address _asset) public onlyOwner {
         bytes memory data = "";
         uint amount = 1000000 ether; //this is the loan amount which will be seen or converted to DAI which means if you enter in 100 here you will be taking a loan of 100 DAI and so on.
-        //basically we can say that this ebtered amount is converted to wei which is a small decimal of ETH and then it is placed in to the mem pool for the mining of the DAI 
+        //basically we can say that this entered amount is converted to wei which is a small decimal of ETH and then it is placed in to the mem pool for the mining of the DAI 
 
         ILendingPoolV1 lendingPool = ILendingPoolV1(addressesProvider.getLendingPool());
         lendingPool.flashLoan(address(this), _asset, amount, data);
@@ -44,9 +48,7 @@ contract FlashloanV1 is FlashLoanReceiverBaseV1 {
        //
         // Your logic goes here.
         // !! Ensure that *this contract* has enough of `_reserve` funds to payback the `_fee` !!
-        //
-
-        uint totalDebt = _amount.add(_fee);
+        uint256 totalDebt = _amount.add(_fee);
         transferFundsBackToPoolInternal(_reserve, totalDebt);
     }
 
@@ -57,4 +59,3 @@ contract FlashloanV1 is FlashLoanReceiverBaseV1 {
 // 10 Million dollar worth flashloan txn hash: 0x13863519283a2b7405f59e3717b6e691387e663f1314419912a3116edc2eb237
 // 100 Million dollar worth flashloan txn hash:  0x88ff14b895036663695deadd3694ee31e7cf634edd403f7ee11131a958aeb386
 // 1 Billion dollar  worth flashloan : 0x4668b84941f39b4ea57094d290b2401fdcd320e26ca26d8c53c0f8cdf96a6b74
-

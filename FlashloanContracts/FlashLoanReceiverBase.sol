@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT 
 pragma solidity >=0.6.6 <0.9.0;
  
-import "Linrary/SafeMath.sol";
-import "Linrary/IERC20.sol";
-import "Linrary/SafeERC20.sol";
+import "Library/SafeMath.sol";
+import "Library/IERC20.sol";
+import "Library/SafeERC20.sol";
 import "./IFlashLoanReceiver.sol";
 import "./ILendingPoolAddressesProvider.sol";
 import "./Withdrawable.sol";
@@ -16,7 +16,7 @@ abstract contract FlashLoanReceiverBaseV1 is IFlashLoanReceiverV1, Withdrawable 
     address constant ethAddress = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
     ILendingPoolAddressesProviderV1 public addressesProvider;
 
-    constructor(address _addressProvider) public {
+    constructor(address _addressProvider) {
         addressesProvider = ILendingPoolAddressesProviderV1(_addressProvider);
     }
 
