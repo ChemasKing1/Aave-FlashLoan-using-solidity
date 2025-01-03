@@ -39,7 +39,7 @@ abstract contract FlashloanV1 is FlashLoanReceiverBaseV1 {
         address _reserve,
         uint256 _amount,
         uint256 _fee,
-        bytes calldata _params
+        bytes calldata /* _params */
     )
         external
         override
