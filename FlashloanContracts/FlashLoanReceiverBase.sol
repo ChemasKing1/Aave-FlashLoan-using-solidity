@@ -1,8 +1,9 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT 
+pragma solidity >=0.6.6 <0.9.0;
  
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/docs-v3.x/contracts/math/SafeMath.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/docs-v3.x/contracts/token/ERC20/IERC20.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/docs-v3.x/contracts/token/ERC20/SafeERC20.sol";
+import "Linrary/SafeMath.sol";
+import "Linrary/IERC20.sol";
+import "Linrary/SafeERC20.sol";
 import "./IFlashLoanReceiver.sol";
 import "./ILendingPoolAddressesProvider.sol";
 import "./Withdrawable.sol";

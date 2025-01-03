@@ -1,7 +1,7 @@
-//Use the lisence here: MIT & Apachai standart
+// SPDX-License-Identifier: MIT 
 //@dev/Developer = Pavan Ananth Sharma
 //@.NET/Network = Kovan Test Network
-pragma solidity ^0.6.5;
+pragma solidity ^0.8.0;
 import "./FlashLoanReceiverBase.sol";
 import "./ILendingPoolAddressesProvider.sol";
 import "./ILendingPool.sol";
