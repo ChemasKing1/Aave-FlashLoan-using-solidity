@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT 
 pragma solidity >=0.6.6 <=0.9.0;
 
-import "Library/ERC20.sol";
-import "Library/SafeERC20.sol";
-import "Library/Ownable.sol";
+import "/libr/ERC20.sol";
+import "libr/SafeERC20.sol";
+import "libr/Ownable.sol";
 
 /**
     Ensures that any contract that inherits from this contract is able to

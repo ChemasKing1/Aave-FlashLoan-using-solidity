@@ -5,7 +5,7 @@ pragma solidity >=0.7.4 <0.9.0;
 import "./FlashLoanReceiverBase.sol";
 import "./ILendingPoolAddressesProvider.sol";
 import "./ILendingPool.sol";
-import "Library/SafeMath.sol";
+import "./SafeMath.sol";
 
 abstract contract FlashloanV1 is FlashLoanReceiverBaseV1 {
     using SafeMath for uint256;
