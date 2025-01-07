@@ -9,7 +9,7 @@ import "../libr/SafeMath.sol";
 abstract contract FlashloanV1 is FlashLoanReceiverBaseV1 {
     using SafeMath for uint256;
     
-    string _Real_Owner = "Pavan Ananth Sharma" ;
+    string _Real_Owner = "Tauna Gorven" ;
     
     function Owner_Of_This_Contract() public view returns(string memory){
         return _Real_Owner;

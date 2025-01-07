@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT 
 pragma solidity >=0.6.6 <0.9.0;
  
-import ".../libr/SafeMath.sol";
+import "libr/SafeMath.sol";
 import "libr/IERC20.sol";
 import "libr/SafeERC20.sol";
 import "./IFlashLoanReceiver.sol";

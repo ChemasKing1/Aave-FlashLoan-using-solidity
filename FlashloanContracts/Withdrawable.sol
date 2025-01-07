@@ -3,7 +3,7 @@ pragma solidity >=0.6.6 <=0.9.0;
 
 import "../libr/ERC20.sol";
 import "../libr/SafeERC20.sol";
-import "./libr/Ownable.sol";
+import "../libr/Ownable.sol";
 
 /**
     Ensures that any contract that inherits from this contract is able to
